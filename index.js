@@ -45,7 +45,7 @@ bot.on('message', function (message) {
 
     case 'call' :
         let callselected = message.mentions.members.first();
-        if(callselected.voiceConnection){
+        if(!callselected.voiceConnection){
         var voiceChannel = callselected.voiceChannel
         voiceChannel.join().then(connection =>
             {
@@ -81,4 +81,4 @@ bot.on('message', function (message) {
     }
 })
 
-bot.login(process.env.TOKEN)
+bot.login(config.token)
